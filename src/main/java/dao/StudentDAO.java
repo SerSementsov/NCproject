@@ -4,14 +4,16 @@ import com.google.gson.*;
 import com.google.gson.stream.JsonReader;
 import inputhandler.UserInputHandler;
 import model.Student;
-import java.io.*;
+
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class StudentDAO implements DAO, JsonReadable{
-
-    private static int counter;
 
     public void create() throws IOException {
         Student student = createStudent();
@@ -25,10 +27,15 @@ public class StudentDAO implements DAO, JsonReadable{
     }
 
     public Student read(int id) throws FileNotFoundException {
-        Gson gson = new Gson();
-        BufferedReader br = new BufferedReader(new FileReader("student.json"));
-        Student student = gson.fromJson(br, Student.class);
-        return student;
+
+        List<Student> students = readAll();
+
+        for(Student student: students){
+            if(student.getRollNo() == id)
+                return student;
+        }
+        return null;
+
     }
 
     public List<Student> readAll() throws FileNotFoundException {

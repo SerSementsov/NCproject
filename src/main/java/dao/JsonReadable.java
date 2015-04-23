@@ -12,7 +12,7 @@ import java.io.InputStreamReader;
 public interface JsonReadable {
 
     default JsonReader getJsonReader(Class clazz)  throws FileNotFoundException{
-        return new JsonReader(new InputStreamReader(new FileInputStream(clazz.getName().toLowerCase().substring(6) + ".json")));
+        return new JsonReader(new InputStreamReader(new FileInputStream(clazz.getName().toLowerCase().substring("model.".length()) + ".json")));
     };
 
 }
