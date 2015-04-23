@@ -1,8 +1,13 @@
 package model;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Student {
+    @SerializedName("name")
     private String firstName;
+    @SerializedName("last name")
     private String lastName;
+    @SerializedName("Roll No")
     private int rollNo;
 
     public Student(){}

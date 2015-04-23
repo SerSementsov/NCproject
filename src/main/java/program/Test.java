@@ -1,11 +1,16 @@
 package program;
 
+import dao.DAO;
+import dao.StudentDAO;
+import java.io.IOException;
 
 public class Test {
 
-    public static void main(String[] args) {
-        System.out.println(Long.toHexString(0x100000000L + 0xcafebabe));
+    public static void main(String[] args) throws IOException {
+
+        DAO studentDAO = new StudentDAO();
+        studentDAO.create();
+
+
     }
-
-
 }
