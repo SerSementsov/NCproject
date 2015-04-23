@@ -42,5 +42,12 @@ public class Student {
         return rollNo;
     }
 
-
+    @Override
+    public String toString() {
+        return "Student{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", rollNo=" + rollNo +
+                '}';
+    }
 }
