@@ -1,9 +1,6 @@
 package model;
 
-/**
- * Created by Сергей on 24.04.2015.
- */
-public class Group {
+public class Group extends Entity{
 
     private String groupName;
 

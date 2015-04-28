@@ -1,19 +1,11 @@
 package model;
 
 
-//import javax.security.auth.Subject;
-import java.util.List;
-
-/**
- * Created by Сергей on 23.04.2015.
- */
-public class Teacher {
+public class Teacher extends Entity{
 
     private String firstName;
     private String middleName;
     private String lastName;
-
-    List<Subject> availableSubjects;
 
     public String getFirstName() {
         return firstName;
@@ -39,15 +31,4 @@ public class Teacher {
         this.lastName = lastName;
     }
 
-    public List<Subject> getAvailableSubjects() {
-        return availableSubjects;
-    }
-
-    public void setAvailableSubjects(List<Subject> availableSubjects) {
-        this.availableSubjects = availableSubjects;
-    }
-
-    public void addSubject(Subject subject){
-        availableSubjects.add(subject);
-    }
 }

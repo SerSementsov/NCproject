@@ -2,15 +2,16 @@ package model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Student {
-    @SerializedName("name")
+public class Student extends Entity{
+
+    @SerializedName("Name")
     private String firstName;
-    @SerializedName("last name")
+    @SerializedName("Surname")
     private String lastName;
     @SerializedName("Roll No")
     private int rollNo;
 
-    public Student(){}
+    public Student(){ super();}
 
     public Student(String firstName, String lastName, int rollNo) {
         this.firstName = firstName;
