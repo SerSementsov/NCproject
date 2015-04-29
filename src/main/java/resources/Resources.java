@@ -7,4 +7,6 @@ public final class Resources {
     public static final String SUBJECT_JSON_FILE = "subject.json";
     public static final String ROOM_JSON_FILE    = "room.json";
     public static final String GROUP_JSON_FILE   = "group.json";
+
+    private Resources(){}
 }

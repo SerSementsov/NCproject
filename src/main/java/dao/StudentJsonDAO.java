@@ -29,6 +29,23 @@ public class StudentJsonDAO implements DAO<Student>, Validator<Student>{
 
     public Student read(int id) throws FileNotFoundException {
 
+        Gson gson = new Gson();
+        JsonParser jsonParser = new JsonParser();
+        JsonReader jsonReader = JsonReadable.getJsonReader(Student.class);
+
+        JsonArray studentsArray = jsonParser.parse(jsonReader).getAsJsonArray();
+        List<Student> students = new ArrayList<>();
+
+        for(JsonElement aStudent: studentsArray){
+            Student tempStudent = gson.fromJson(aStudent,Student.class);
+            if(tempStudent.getRollNo() == id)
+                return tempStudent;
+        }
+        return null;
+    }
+
+    public Student read1(int id) throws FileNotFoundException {
+
         List<Student> students = readAll();
 
         for(Student student: students){
@@ -36,8 +53,8 @@ public class StudentJsonDAO implements DAO<Student>, Validator<Student>{
                 return student;
         }
         return null;
-
     }
+
 
     public List<Student> readAll() throws FileNotFoundException {
         Gson gson = new Gson();
@@ -65,7 +82,6 @@ public class StudentJsonDAO implements DAO<Student>, Validator<Student>{
 
     @Override
     public void delete(Student entity) {
-
     }
 
     @Override
